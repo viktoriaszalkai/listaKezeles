@@ -16,6 +16,21 @@ export function rendez(lista, irany) {
 export function szures(lista, kereseoSzoveg) {
   /*  szures(lista, kereseoSzoveg)->szurtLista a keresőmezőbe beírt szöveget keresi a lista objektumainak név mezőjében., akkor fut le, ha beírunk valamit a keresőmezőbe */
   const szurtLISTA = lista.filter(function (ember) {
+    for (let i = 0; i < lista.length; i++) {
+      for (let j = 0; j < ember.nev.length; j++) {
+        if(ember.nev[j] == "á"){
+          ember.nev[j] == "a"
+        }else if(ember.nev[j] == "é"){
+          ember.nev[j] == "e"
+        }else if(ember.nev[j] == "í"){
+          ember.nev[j] == "i"
+        }else if(ember.nev[j] == "ó" || ember.nev[j] == "ö" || ember.nev[j] == "ő"){
+          ember.nev[j] == "o"
+        }else if(ember.nev[j] == "ú" || ember.nev[j] == "ü" || ember.nev[j] == "ű"){
+          ember.nev[j] == "u"
+        }
+      }
+    }
     return ember.nev.toUpperCase().includes(kereseoSzoveg.toUpperCase());
   });
   return szurtLISTA;
