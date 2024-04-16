@@ -1,5 +1,5 @@
 import { emberekLISTA } from "./adat.js";
-import { rendez } from "./adatkezelo.js";
+import { rendezNev, rendezKor, rendezNem } from "./adatkezelo.js";
 import { htmlOsszeallit, megjelenit } from "./listaMegjelenit.js";
 import { szures } from "./adatkezelo.js";
 import { torol } from "./adatkezelo.js";
@@ -27,9 +27,23 @@ function init(lista) {
 rendezEsemeny();
 function rendezEsemeny() {
   const nevELEM = $(".adatok table th").eq(0);
-  console.log(rendez(emberekLISTA));
+  const korELEM = $(".adatok table th").eq(1);
+  const nemELEM = $(".adatok table th").eq(2);
+  console.log(rendezNev(emberekLISTA));
   nevELEM.on("click", function () {
-    const rLISTA = rendez(emberekLISTA, irany);
+    const rLISTA = rendezNev(emberekLISTA, irany);
+    console.log(rLISTA);
+    init(rLISTA);
+    irany *= -1;
+  });
+  korELEM.on("click", function () {
+    const rLISTA = rendezKor(emberekLISTA, irany);
+    console.log(rLISTA);
+    init(rLISTA);
+    irany *= -1;
+  });
+  nemELEM.on("click", function () {
+    const rLISTA = rendezNem(emberekLISTA, irany);
     console.log(rLISTA);
     init(rLISTA);
     irany *= -1;

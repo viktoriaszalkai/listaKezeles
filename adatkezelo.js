@@ -1,9 +1,35 @@
-export function rendez(lista, irany) {
+export function rendezNev(lista, irany) {
   /* 3. rendez(lista)-> rendezettLista | a paraméterében kapott listát név szerint rendezi; */
   lista.sort(function (e1, e2) {
     /* név szerint */
     let eredmeny = 1;
     if (e1.nev < e2.nev) {
+      eredmeny = -1;
+    }
+    return eredmeny * irany;
+    /* visszater egy pozitiv vagy egy negativ szammal, ha negativ akkor felcseréli a két eelemet, ha pozitív nem */
+  });
+  return lista;
+}
+export function rendezKor(lista, irany) {
+  /* 3. rendez(lista)-> rendezettLista | a paraméterében kapott listát név szerint rendezi; */
+  lista.sort(function (e1, e2) {
+    /* név szerint */
+    let eredmeny = 1;
+    if (e1.kor < e2.kor) {
+      eredmeny = -1;
+    }
+    return eredmeny * irany;
+    /* visszater egy pozitiv vagy egy negativ szammal, ha negativ akkor felcseréli a két eelemet, ha pozitív nem */
+  });
+  return lista;
+}
+export function rendezNem(lista, irany) {
+  /* 3. rendez(lista)-> rendezettLista | a paraméterében kapott listát név szerint rendezi; */
+  lista.sort(function (e1, e2) {
+    /* név szerint */
+    let eredmeny = 1;
+    if (e1.nem < e2.nem) {
       eredmeny = -1;
     }
     return eredmeny * irany;
