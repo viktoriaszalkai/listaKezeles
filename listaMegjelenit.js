@@ -7,7 +7,7 @@ export function htmlOsszeallit(lista) {
     txt+= `<tr>`;
     for (const key in element) {
       /* objektumokat jár be, elemement[key] = az adott elem értékét */
-      console.log("key:", key, element[key]);
+      //console.log("key:", key, element[key]);
     
     txt += `<td>${element[key]}</td>`;
     }

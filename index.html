@@ -22,7 +22,7 @@
         <h1>Listák kezelése</h1>
       </header>
       <div class="urlap">
-        <form>
+        <form class="was-validated">
           <div class="mb-3 mt-3">
             <label for="nev" class="form-label">Név:</label>
             <input
@@ -31,18 +31,23 @@
               id="nev"
               placeholder="Név"
               name="nev"
+              required pattern="^[A-Z][a-z A-Z]{,3}$"
             />
+            <div class="valid-feedback">Ok.</div>
+            <div class="invalid-feedback">Kötelező mező.Nagybetűvel kezdődjön, legyen legalább 3 karakter.</div>
           </div>
           <div class="mb-3">
             <label for="kor" class="form-label">Kor:</label>
             <input type="number" class="form-control" id="kor"min= "0", max =
-            "120name="kor">
+            "120" name="kor" required>
+            <div class="valid-feedback">OK.</div>
+            <div class="invalid-feedback">A kor 0 és 120 között lehet.</div>
           </div>
           <div class="form-check">
             <input
               type="radio"
               class="form-check-input"
-              id="radio1"
+              id="no"
               name="nem"
               value="false"
             />Nő
@@ -52,13 +57,15 @@
             <input
               type="radio"
               class="form-check-input"
-              id="radio2"
+              id="ferfi"
               name="nem"
               value="true"
             />Férfi
             <label class="form-check-label" for="radio2"></label>
           </div>
-          <button type="submit" class="btn btn-primary">Hozzáad</button>
+          <button type="submit" id="submit" class="btn btn-primary">
+            Hozzáad
+          </button>
         </form>
       </div>
       <div class="be">

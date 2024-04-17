@@ -3,6 +3,7 @@ import { rendezNev, rendezKor, rendezNem } from "./adatkezelo.js";
 import { htmlOsszeallit, megjelenit } from "./listaMegjelenit.js";
 import { szures } from "./adatkezelo.js";
 import { torol } from "./adatkezelo.js";
+import { ujAdat } from "./urlapkezelo.js";
 /*FELADAT SPECIFIKÁCIÓ
 jelenítsük meg a listánkat egy táblázatban, majd a listát tudjuk rendezni pl név szerint, ha rákattintunk a táblázat fejlécére, akkor rendezze be a táblázat sorait
 tudjunk szűrni név alapján, 
@@ -18,7 +19,7 @@ tudjuk törölni a táblázat egy sorát */
 */
 let irany = 1; /* 1 = novekvő rendezés, -1 =  */
 init(emberekLISTA);
-function init(lista) {
+export function init(lista) {
   megjelenit(htmlOsszeallit(lista));
   rendezEsemeny();
   szuresEsemeny();
@@ -32,13 +33,13 @@ function rendezEsemeny() {
   console.log(rendezNev(emberekLISTA));
   nevELEM.on("click", function () {
     const rLISTA = rendezNev(emberekLISTA, irany);
-    console.log(rLISTA);
+    //console.log(rLISTA);
     init(rLISTA);
     irany *= -1;
   });
   korELEM.on("click", function () {
     const rLISTA = rendezKor(emberekLISTA, irany);
-    console.log(rLISTA);
+    //console.log(rLISTA);
     init(rLISTA);
     irany *= -1;
   });
@@ -55,7 +56,7 @@ function szuresEsemeny() {
   keresoELEM.on("keyup", function () {
     let kereseoSzoveg = keresoELEM.val();
     const szLISTA = szures(emberekLISTA, kereseoSzoveg);
-    console.log(szLISTA);
+    //console.log(szLISTA);
     init(szLISTA);
   });
 }
@@ -72,4 +73,5 @@ torolGOMB.on("click", function (event) {
 
 }
 
-
+ujAdat(emberekLISTA);
+init(emberekLISTA)
