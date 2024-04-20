@@ -1,37 +1,37 @@
-/* Az űrlapról összegűjtük az adatokat a submit gombra kattintva */
-
 import { init } from "./main.js"
-
-export function ujAdat(lista){
-    const nevElem=$("#nev")
-    const korElem=$("#kor")
-    const nemElem = $("input[name = 'nem']:checked")
-    const submitElem=$("#submit")
-
-    const adatOBJ={
-        nev:"",
-        kor:0,
-        nem:false,
+export function adatokListaba(lista) {
+    /* összegyűjti az űrlapról az adatokat */
+    let adat = {
+        nev: "",
+        kor: 0,
+        nem: true
     }
-    submitElem.on("click", function(event){
-        event.preventDefault();/* leszedi az alapértelmezett hozzárendelt eseményt */
-        adatOBJ.nev=nevElem.val()
-        adatOBJ.kor=Number(korElem.val())
-        adatOBJ.nem = (nemElem.val() === "true" ? true: false)
-        //adatOBJ.nem=ferfiElem.isChecked()
-        console.log(adatOBJ)
-        
-        const validElem =$(".valid-feedback")
-        const nevValide = validElem.eq(0).css("display")!=="none"
-        const korValide = validElem.eq(1).css("display")!=="none"
 
-        console.log(nevValide,korValide)
-        if(nevValide && korValide){
-            lista.push(adatOBJ)
+    /*  const nemELEM = $("input[name='nem']:checked") */
+
+    const submitELEM = $("#submit")
+    /* beleteszi a listába, ha rákattintunk a hozzáad gopm,bra */
+    submitELEM.on("click", function (event) {
+        event.preventDefault()
+
+        /*  submit gombról levesszük az alapértelmezett eseménykezelőt */
+        /*  megfogjuk az űrlapmezőket */
+        const nevELEM = $("#nev")
+        const korELEM = $("#kor")
+        const nemElem = $("input[name='nem']:checked")
+        adat = {
+            nev: nevELEM.val(),
+            kor: korELEM.val(),
+            nem: nemElem.val() === "false" ? false : true
+        }
+        const validELEMEK=$(".valid-feedback")
+        console.log(validELEMEK.eq(0).css("display"))
+
+        if (validELEMEK.eq(0).css("display")==="block" && validELEMEK.eq(1).css("display")==="block" ) {
+             lista.push(adat)          
             init(lista)
-        }else{
-            console.log("hibás adatok")
         }
 
     })
+
 }

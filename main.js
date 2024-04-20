@@ -3,7 +3,7 @@ import { rendezNev, rendezKor, rendezNem } from "./adatkezelo.js";
 import { htmlOsszeallit, megjelenit } from "./listaMegjelenit.js";
 import { szures } from "./adatkezelo.js";
 import { torol } from "./adatkezelo.js";
-import { ujAdat } from "./urlapkezelo.js";
+import { adatokListaba } from "./urlapkezelo.js";
 /*FELADAT SPECIFIKÁCIÓ
 jelenítsük meg a listánkat egy táblázatban, majd a listát tudjuk rendezni pl név szerint, ha rákattintunk a táblázat fejlécére, akkor rendezze be a táblázat sorait
 tudjunk szűrni név alapján, 
@@ -73,5 +73,5 @@ torolGOMB.on("click", function (event) {
 
 }
 
-ujAdat(emberekLISTA);
+adatokListaba(emberekLISTA);
 init(emberekLISTA)
