@@ -1,3 +1,4 @@
+import { postAdat } from "./aszinkron.js"
 import { init } from "./main.js"
 export function adatokListaba(lista) {
     /* összegyűjti az űrlapról az adatokat */
@@ -24,13 +25,15 @@ export function adatokListaba(lista) {
             kor: korELEM.val(),
             nem: nemElem.val() === "false" ? false : true
         }
-        const validELEMEK=$(".valid-feedback")
+
+        postAdat("http://localhost:3000/emberekLISTA", adat);
+        /* const validELEMEK=$(".valid-feedback")
         console.log(validELEMEK.eq(0).css("display"))
 
         if (validELEMEK.eq(0).css("display")==="block" && validELEMEK.eq(1).css("display")==="block" ) {
-             lista.push(adat)          
-            init(lista)
-        }
+         /*     lista.push(adat)          
+            init(lista) */
+    
 
     })
 

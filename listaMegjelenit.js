@@ -1,7 +1,7 @@
 export function htmlOsszeallit(lista) {
   /* táblázatba */
   let txt = "<table class = 'table table-striped'>";
-  txt += "<tr><th>Név</th><th>Kor</th><th>Nem</th></tr>";
+  txt += "<tr><th>ID</th><th>Név</th><th>Kor</th><th>Nem</th></tr>";
   txt+="<tbody>"
   lista.forEach((element, index) => {
     txt+= `<tr>`;
@@ -11,7 +11,7 @@ export function htmlOsszeallit(lista) {
     
     txt += `<td>${element[key]}</td>`;
     }
-  txt += `<td class='torol' id = ${index}>🗑️</td>`;
+  txt += `<td class='torol' id = ${element.id}>🗑️</td>`;
     txt+= `</tr>`;
   });
   txt += "</tbody></table>";
